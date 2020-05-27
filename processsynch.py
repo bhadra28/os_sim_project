@@ -143,7 +143,8 @@ def dp():
         lbl.pack()
         
     main_frame.pack()
-
+    quit_btn = tk.Button(main_frame, text="Quit", command=root.destroy)
+    quit_btn.pack(side=tk.LEFT, padx=10)
     root.mainloop()
     os.remove('oplogs/dp.txt')
 
