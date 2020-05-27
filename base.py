@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 import numpy as np
 
 
@@ -55,6 +56,8 @@ def bankers(matrix, available, r, c):
     finished = [False]*r
     seq = []
     check = True
+
+    ans = True
     
     while(len(seq)<r):
         check = False
@@ -82,19 +85,39 @@ def bankers(matrix, available, r, c):
 
     if len(seq) != r:
         text = "The sequence couldn't be found"
+        ans=False
     else:
         text = "A valid sequence is " + str(seq)
+        ans=True
     
     print(text)
     bankers_win = tk.Tk()
     bankers_win.title("Banker's Algorithm Output")
     bankers_win.minsize(400, 300)
     frame = tk.Frame(master=bankers_win)
-    res_lbl = tk.Label(master=frame, text=text)
-    # res_lbl.place(relx=.5, rely=.5, anchor="center")
-    res_lbl.pack()
-    # quit_btn = tk.Button(master=bankers_win, text="Quit", command=bankers_win.destroy)
-    # quit_btn.pack()
+
+
+
+    if ans:
+        res_lbl = tk.Label(frame, text="A valid sequence was found!", background='green', foreground='white')
+        res_lbl.place(relx=.5, rely=.5, anchor="center")
+        res_lbl.pack()
+
+        text = "P" + " P".join(map(str, seq))
+
+        seq_lbl = tk.Label(frame, text=text)
+        seq_lbl.pack()
+    else:
+        res_lbl = tk.Label(frame, text="No valid sequence was found.", background='red', foreground='white')
+        res_lbl.pack()
+
+
+    
+    
+    frame.pack()
+
+    quit_btn = tk.Button(master=bankers_win, text="Close", command=bankers_win.destroy)
+    quit_btn.pack()
 
     bankers_win.mainloop()
 
@@ -103,45 +126,59 @@ def bankers_input_mat(r, c):
     window = tk.Tk()
     window.title("Banker's Algorithm Input")
     entryobj = []
-    free = []
+    free = []   
 
+    frame = tk.Frame(window, borderwidth=1)
+    frame.grid(row=0, column=1, columnspan=c)
+    lbl = tk.Label(master=frame, text="Resources Allocated")
+    lbl.pack()
+
+    frame = tk.Frame(window, borderwidth=1)
+    val=0
+    if c==1:
+        val = 2
+    else:
+        val = int(3*c/2)
+    frame.grid(row=0, column=val, columnspan=c)
+    lbl = tk.Label(master=frame, text="Maximum Resources needed")
+    lbl.pack()
 
     for i in range(r):
         frame = tk.Frame(window, borderwidth=1)
-        frame.grid(row=i+1, column=0)
+        frame.grid(row=i+2, column=0)
         lbl = tk.Label(master=frame, text="Process {}".format(i))
         lbl.pack()
 
     for i in range(c):
         frame = tk.Frame(window, borderwidth=1)
-        frame.grid(row=0, column=i+1)
-        lbl = tk.Label(master=frame, text="Resource {} Allocated".format(i))
+        frame.grid(row=1, column=i+1)
+        lbl = tk.Label(master=frame, text="R{}".format(i))
         lbl.pack()
 
     for i in range(c):
         frame = tk.Frame(window, borderwidth=1)
-        frame.grid(row=0, column=c+i+1)
-        lbl = tk.Label(master=frame, text="Resource {} Maximum".format(i))
+        frame.grid(row=1, column=c+i+1)
+        lbl = tk.Label(master=frame, text="R{}".format(i))
         lbl.pack()
 
     
     for i in range(r):
         for j in range(2*c):
             frame = tk.Frame(master=window, relief=tk.RAISED, borderwidth=1)
-            frame.grid(row=i+1, column=j+1, padx=5, pady=5)
+            frame.grid(row=i+2, column=j+1, padx=5, pady=5)
             entry = tk.Entry(master=frame)
             entryobj.append(entry)
             entry.pack()
 
 
     frame = tk.Frame(window, borderwidth=1)
-    frame.grid(row=r+2, column=0)
-    lbl = tk.Label(master=frame, text="Initial Available resource")
+    frame.grid(row=r+3, column=0)
+    lbl = tk.Label(master=frame, text="Initial Free resource")
     lbl.pack()
 
     for i in range(c):
         frame = tk.Frame(window, borderwidth=1)
-        frame.grid(row=r+2, column=i+1)
+        frame.grid(row=r+3, column=i+1)
         entry = tk.Entry(master=frame)
         free.append(entry)
         entry.pack()
@@ -173,10 +210,10 @@ def bankers_input_mat(r, c):
 
 
     submitspace = tk.Frame(master=window, borderwidth=1)
-    submitspace.grid(row=r+3, column=2*c)
+    submitspace.grid(row=r+4, column=2*c)
 
     quitspace = tk.Frame(master=window, borderwidth=1 )
-    quitspace.grid(row=r+3, column=0)
+    quitspace.grid(row=r+4, column=0)
 
     quit_btn = tk.Button(master=quitspace, text="Quit", command = window.destroy)
     quit_btn.pack()
