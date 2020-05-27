@@ -2,14 +2,6 @@ import tkinter as tk
 import numpy as np
 
 
-def main():
-    mainwindow = tk.Tk()
-    mainwindow.title("OS Simulator")
-    mainwindow.minsize(400, 300)
-    matdisplay_btn = tk.Button(master=mainwindow, text="Page Replacement Algorithm", command=getinputPagerep)
-    matdisplay_btn.pack()
-    mainwindow.mainloop()
-
 def getinputPagerep():
     input_win = tk.Tk()
     input_win.title("Page Replacement Algorithm Inputs")
@@ -207,7 +199,9 @@ def get_input_Pagerep(m,n):
 
     frame = tk.Frame(window, borderwidth=1)
     frame.grid(row=0, column=0)
+
     lbl = tk.Label(master=frame, text="Sequence:\n(Input only positive values)")
+
     lbl.pack()
 
     for i in range(n):
@@ -254,8 +248,4 @@ def get_input_Pagerep(m,n):
 
     window.mainloop()
 
-
-
-if __name__ == "__main__":
-    main()
     

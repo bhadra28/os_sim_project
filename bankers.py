@@ -75,10 +75,8 @@ def bankers(matrix, available, r, c):
     text = ""
 
     if len(seq) != r:
-        text = "The sequence couldn't be found"
         ans=False
     else:
-        text = "A valid sequence is " + str(seq)
         ans=True
     
     print(text)
