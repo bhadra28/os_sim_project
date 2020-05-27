@@ -164,6 +164,12 @@ def getinputMemA(b,p):
     window.mainloop()
 
 def firstFit(blockSize, m, processSize, n):
+    intf = 0
+    exf = 0
+    temp = []
+    for i in range(m):
+        temp.append(blockSize[i])
+    
     allocation = [-1] * n  
     for i in range(n): 
         for j in range(m): 
@@ -195,10 +201,27 @@ def firstFit(blockSize, m, processSize, n):
         else: 
             lbl2 = tk.Label(frame,text ="Block Not Allocated", background = '#ffcccb',relief="ridge",borderwidth = 3,width = 20).grid(row = i+2,column = 3)
             
+    for i in range(m):
+        if temp[i]==blockSize[i]:
+            exf= exf + temp[i]
+        else:
+            intf= intf + blockSize[i]
+            
+    lbl = tk.Label(frame, text="Internal Fragmentation : "+ str(intf)).grid(row =n+3 ,column = 2)
+    lbl = tk.Label(frame, text="External Fragmentation : "+str(exf)).grid(row = n+4,column = 2)
+
     frame.grid()
+    
+    
             
             
 def bestFit(blockSize, m, processSize, n): 
+    intf = 0
+    exf = 0
+    temp = []
+    for i in range(m):
+        temp.append(blockSize[i])
+        
     allocation = [-1] * n  
     for i in range(n):   
         bestIdx = -1
@@ -236,10 +259,25 @@ def bestFit(blockSize, m, processSize, n):
         else: 
             lbl2 = tk.Label(frame,text ="Block Not Allocated", background = '#ffcccb',relief="ridge",borderwidth = 3,width = 20).grid(row = i+2,column = 3)
             
+    for i in range(m):
+        if temp[i]==blockSize[i]:
+            exf= exf + temp[i]
+        else:
+            intf= intf + blockSize[i]
+            
+    lbl = tk.Label(frame, text="Internal Fragmentation : "+ str(intf)).grid(row =n+3 ,column = 2)
+    lbl = tk.Label(frame, text="External Fragmentation : "+str(exf)).grid(row = n+4,column = 2)
+
     frame.grid()
             
             
 def worstFit(blockSize, m, processSize, n): 
+    intf = 0
+    exf = 0
+    temp = []
+    for i in range(m):
+        temp.append(blockSize[i])
+        
     allocation = [-1] * n 
     for i in range(n): 
         wstIdx = -1
@@ -276,6 +314,15 @@ def worstFit(blockSize, m, processSize, n):
         else: 
             lbl2 = tk.Label(frame,text ="Block Not Allocated", background = '#ffcccb',relief="ridge",borderwidth = 3,width = 20).grid(row = i+2,column = 3)
             
+    for i in range(m):
+        if temp[i]==blockSize[i]:
+            exf= exf + temp[i]
+        else:
+            intf= intf + blockSize[i]
+            
+    lbl = tk.Label(frame, text="Internal Fragmentation : "+ str(intf)).grid(row =n+3 ,column = 2)
+    lbl = tk.Label(frame, text="External Fragmentation : "+str(exf)).grid(row = n+4,column = 2)
+
     frame.grid()
 
             
