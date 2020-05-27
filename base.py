@@ -43,8 +43,17 @@ def main():
     dinnerp = tk.Button(frame, text="Dining Philosopher", command = dp)
     dinnerp.pack()
     CreateToolTip(dinnerp, text = 'This is a simulation\n'
-                 'Delay of 3 seconds to generate output')
+                 'Delay of 3 seconds to generate output'
+                 'Simulates 5 philosophers in the dining philosophers problem')
     
+    frame = tk.Frame(mainwindow)
+    frame.pack(padx=10, pady=10)
+    dinnerp = tk.Button(frame, text="Sleeping Barbers", command = sb)
+    dinnerp.pack()
+    CreateToolTip(dinnerp, text = 'This is a simulation\n'
+                 'Delay of a few seconds to generate output'
+                 'Simulates 50 customers and 3 barbers in the sleeping barbers problem')
+
 
     mainwindow.mainloop()
 

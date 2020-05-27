@@ -114,6 +114,7 @@ def dp():
 
 
     root = tk.Tk()
+    root.title("Dining Philosophers")
 
 
     canvas = tk.Canvas(root, height=600, width=400)
@@ -232,7 +233,7 @@ def pc():
         """Pretend we're getting a number from the network."""
         while not event.is_set():
             message = random.randint(1, 101)
-            logging.info("Producer got message: %s", message, file=open("oplogs/sb.txt", "a"))
+            logging.info("Producer got message: %s", message)
             queue.put(message)
 
         logging.info("Producer received event. Exiting")
@@ -289,12 +290,12 @@ def sb():
                         with self.condition:
                                 if not self.customers:
                                         # No customers, snore...
-                                        print("ZzZzZz")
+                                        print("No Customers...", file=open("oplogs/sb.txt", "a"))
                                         time.sleep(0.1 * random.random())
                                 # Get the next customer
                                 if self.customers:
                                         current_customer = self.customers[0]
-                                        print("A new customer has sat down...   ")
+                                        print("A new customer has sat down...   ", file=open("oplogs/sb.txt", "a"))
                         # Actually service the next customer
                         if self.customers:
                                 self.customers.pop(0)
@@ -309,9 +310,9 @@ def sb():
 
         def trim(self):  # Called from Barber thread
                 # Get a haircut
-                print("Cutting hair...   ")
+                print("Cutting hair...   ", file=open("oplogs/sb.txt", "a"))
                 time.sleep(0.1 * random.random())
-                print("Haircut finished   ")
+                print("Haircut finished   ", file=open("oplogs/sb.txt", "a"))
                 self.serviced.set()
                 
         def run(self):
@@ -319,17 +320,45 @@ def sb():
                 # Grab the barbers' attention, add ourselves to the customers,
                 # and wait to be serviced
                 if len(Barber().customers) < WAITING_ROOM:
-                        print("A new customer has entered...   ")
+                        print("A new customer has entered...   ", file=open("oplogs/sb.txt", "a"))
                         Barber().customers.append(self)
                 else:
-                        print("Waiting room full, customer leaving...   ")
+                        print("Waiting room full, customer leaving...   ", file=open("oplogs/sb.txt", "a"))
                         self.serviced.set()
                 while self.serviced.isSet() == False:
                         self.wait()
 
     if __name__ == '__main__':
         barbers = []
-        print("Shop Opened")
+
+        def on_configure(event):
+            canvas.configure(scrollregion=canvas.bbox('all'))
+
+
+        root = tk.Tk()
+        root.title("Sleeping Barbers")
+
+
+        canvas = tk.Canvas(root, height=600, width=400)
+        canvas.pack(side=tk.LEFT)
+
+        yscroll = tk.Scrollbar(root, command=canvas.yview)
+        yscroll.pack(side=tk.LEFT, fill='y')
+
+        canvas.configure(yscrollcommand = yscroll.set)
+
+        canvas.bind('<Configure>', on_configure)
+
+        
+
+        frame = tk.Frame(canvas, background='white')
+        canvas.create_window((0,0), window=frame, anchor='nw')
+
+        f = open("oplogs/sb.txt", 'w')
+        f.close()
+
+
+        print("Shop Opened", file=open("oplogs/sb.txt", "a"))
         for i in range(BARBERS):
                 b = Barber()
                 barbers.append(b)
@@ -345,10 +374,19 @@ def sb():
         Barber().should_stop.set()
         for b in barbers:
                 b.join()  # Wait for the barbers to finish completely
-        print("All done for the day, Barber(s) leaving")
+        print("All done for the day, Barber(s) leaving", file=open("oplogs/sb.txt", "a"))
+
+        f = open("oplogs/sb.txt", 'r')
+
+        for line in f.readlines():
+            lbl = tk.Label(frame, text = line, background='white')
+            lbl.pack()
+
+        os.remove('oplogs/sb.txt')
+        root.mainloop()
         
 #Use this to call Sleeping Barber
-# sb()
+sb()
 
 
 
