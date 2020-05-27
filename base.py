@@ -3,7 +3,6 @@ from tkinter import ttk
 import numpy as np
 
 from bankers import *
-from safety import *
 from page_rep import *
 
 
@@ -15,8 +14,6 @@ def main():
     bankers_btn.pack()
     pagerep_btn = tk.Button(master=mainwindow, text="Page replacement methods", command=getinputPagerep)
     pagerep_btn.pack()
-    safety_btn = tk.Button(master=mainwindow, text="Safety Algorithm", command=getinputSafety)
-    safety_btn.pack()
     mainwindow.mainloop()
 
 if __name__ == "__main__":
