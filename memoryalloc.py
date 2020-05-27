@@ -1,12 +1,4 @@
 import tkinter as tk
-
-def main():
-    mainwindow = tk.Tk()
-    mainwindow.title("OS Simulator")
-    mainwindow.minsize(400, 300)
-    matdisplay_btn = tk.Button(master=mainwindow, text="Memory Allocation Algorithm", command=getinputMA)
-    matdisplay_btn.pack()
-    mainwindow.mainloop()
     
 def getinputMA():
     input_win = tk.Tk()
@@ -17,7 +9,7 @@ def getinputMA():
     n_blk_lbl.pack()
     
     frame_1_0 = tk.Frame(master=input_win, borderwidth=1)
-    frame_1_0.grid(row=0, column=0)
+    frame_1_0.grid(row=1, column=0)
     n_proc_lbl = tk.Label(master=frame_0_0, text="Number of processes")
     n_proc_lbl.pack()
     
@@ -325,7 +317,4 @@ def worstFit(blockSize, m, processSize, n):
 
     frame.grid()
 
-            
-if __name__ == '__main__':
-    main()
    

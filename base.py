@@ -7,7 +7,7 @@ from bankers import *
 from page_rep import *
 from diskscheduling import *
 from processsynch import *
-
+from memoryalloc import *
 
 def fun():
     exec(open('diskscheduling.py').read())
@@ -27,9 +27,18 @@ def main():
     frame = tk.Frame(mainwindow)
     frame.pack(padx=10, pady=10)
     pagerep_btn = tk.Button(frame, text="Page replacement methods", command=getinputPagerep)
-    pagerep_btn.grid(row=3, column=0)
+    pagerep_btn.pack()
     CreateToolTip(pagerep_btn, text = 'Generates analysis of page replacement methods\n'
                  'Gives number of page faults and frame contents for FIFO, LRU and OPTIMAL.')
+
+    frame = tk.Frame(mainwindow)
+    frame.pack(padx=10, pady=10)
+    pagerep_btn = tk.Button(frame, text="Memory Allocation methods", command=getinputMA)
+    pagerep_btn.pack()
+    CreateToolTip(pagerep_btn, text = 'Generates analysis of Memory Allocation methods\n'
+                 'Gives fragmentation, block allocation for first fit, best fit and worst fit.')
+
+
 
     frame = tk.Frame(mainwindow)
     frame.pack(padx=10, pady=10)
