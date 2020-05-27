@@ -35,8 +35,8 @@ def main():
     frame.pack(padx=10, pady=10)
     disksched_btn = tk.Button(frame, text="Disk Scheduling methods", command=diskSchedulingMain)
     disksched_btn.pack()
-    CreateToolTip(disksched_btn, text = 'This is a simulation\n'
-                 'Delay of 3 seconds to generate output')
+    CreateToolTip(disksched_btn, text = 'Implementation\n'
+                 'Output is in textboxes')
 
     frame = tk.Frame(mainwindow)
     frame.pack(padx=10, pady=10)

@@ -31,6 +31,7 @@ def diskScheduling(req, startHead, noOfIndex, dir, min, max, outputFrame):
     T1.insert(tk.INSERT, 'Total number of seeks: {}\n'.format(totalSeek))
     T1.insert(tk.INSERT, 'Seek Sequence\n')
     T1.insert(tk.END, seekSeq)
+    T1.config(state='disabled')
 
     ####################
     #  SSTF
@@ -76,6 +77,7 @@ def diskScheduling(req, startHead, noOfIndex, dir, min, max, outputFrame):
     T2.insert(tk.INSERT, 'Total number of seeks: {}\n'.format(totalSeek))
     T2.insert(tk.INSERT, 'Seek Sequence\n')
     T2.insert(tk.END, seekSeq)
+    T2.config(state='disabled')
 
     ####################
     #  SCAN
@@ -175,6 +177,7 @@ def diskScheduling(req, startHead, noOfIndex, dir, min, max, outputFrame):
     T3.insert(tk.INSERT, 'Total number of seeks: {}\n'.format(totalSeek))
     T3.insert(tk.INSERT, 'Seek Sequence\n')
     T3.insert(tk.END, seekSeq)
+    T3.config(state='disabled')
 
     ####################
     #  CSCAN
@@ -286,6 +289,7 @@ def diskScheduling(req, startHead, noOfIndex, dir, min, max, outputFrame):
     T4.insert(tk.INSERT, 'Total number of seeks: {}\n'.format(totalSeek))
     T4.insert(tk.INSERT, 'Seek Sequence\n')
     T4.insert(tk.END, seekSeq)
+    T4.config(state='disabled')
 
     ####################
     #  LOOK
@@ -361,6 +365,7 @@ def diskScheduling(req, startHead, noOfIndex, dir, min, max, outputFrame):
     T5.insert(tk.INSERT, 'Total number of seeks: {}\n'.format(totalSeek))
     T5.insert(tk.INSERT, 'Seek Sequence\n')
     T5.insert(tk.END, seekSeq)
+    T5.config(state='disabled')
 
     ####################
     #  CLOOK
@@ -432,10 +437,11 @@ def diskScheduling(req, startHead, noOfIndex, dir, min, max, outputFrame):
 
     T6 = tk.Text(outputFrame, height=4, width=30)
     T6.pack()
-    T6.insert(tk.INSERT, "LOOK\n")
+    T6.insert(tk.INSERT, "CLOOK\n")
     T6.insert(tk.INSERT, 'Total number of seeks: {}\n'.format(totalSeek))
     T6.insert(tk.INSERT, 'Seek Sequence\n')
     T6.insert(tk.END, seekSeq)
+    T6.config(state='disabled')
 
 
 def checkInputs(entries, errorText):
