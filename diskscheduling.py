@@ -438,7 +438,7 @@ def diskScheduling(req, startHead, noOfIndex, dir, min, max, outputFrame):
     T6.insert(tk.END, seekSeq)
 
 
-def checkInputs(entries):
+def checkInputs(entries, errorText):
 
     for entry in entries:
         if entry.get().strip() == '':
@@ -453,9 +453,9 @@ def checkInputs(entries):
     return True
 
 
-def onSubmitClickFirst():
+def onSubmitClickFirst(errorText, maxEntry, dirEntry, headEntry, noOfIndexEntry, indexEntries, bottomFrame, middleFrame):
 
-    if checkInputs([maxEntry, dirEntry, headEntry, noOfIndexEntry]):
+    if checkInputs([maxEntry, dirEntry, headEntry, noOfIndexEntry], errorText):
         errorText.set('')
 
         if int(dirEntry.get()) == 0 or int(dirEntry.get()) == 1:
@@ -473,13 +473,13 @@ def onSubmitClickFirst():
         indexEntries.append(newEntry)
 
     submitBtn = tk.Button(bottomFrame, text='Submit',
-                          command=onSubmitClickSecond)
+                          command=lambda: onSubmitClickSecond(errorText, maxEntry, dirEntry, headEntry, noOfIndexEntry, indexEntries, bottomFrame))
     submitBtn.grid(row=0, column=1, padx=10, pady=10)
 
 
-def onSubmitClickSecond():
+def onSubmitClickSecond(errorText, maxEntry, dirEntry, headEntry, noOfIndexEntry, indexEntries, bottomFrame):
 
-    if checkInputs(indexEntries):
+    if checkInputs(indexEntries, errorText):
         errorText.set('')
     else:
         return False
@@ -502,15 +502,15 @@ def onSubmitClickSecond():
 
     tk.Label(output, text='Disk Scheduling').pack()
 
-    diskScheduling(indices, headInput, noOfIndexInput, dirInput, 0, maxInput, outputFrame)
+    diskScheduling(indices, headInput, noOfIndexInput,
+                   dirInput, 0, maxInput, outputFrame)
 
     submitBtn = tk.Button(bottomFrame, text='Submit', state=tk.DISABLED)
     submitBtn.grid(row=0, column=1, padx=10, pady=10)
 
 
-if __name__ == '__main__':
+def diskSchedulingMain():
 
-    curStep = 1
     indexEntries = []
 
     window = tk.Tk()
@@ -554,27 +554,12 @@ if __name__ == '__main__':
     quitBtn.grid(row=0, column=0, padx=10, pady=10)
 
     submitBtn = tk.Button(bottomFrame, text='Submit',
-                          command=onSubmitClickFirst)
+                          command=lambda: onSubmitClickFirst(errorText, maxEntry, dirEntry, headEntry, noOfIndexEntry, indexEntries, bottomFrame, middleFrame))
     submitBtn.grid(row=0, column=1, padx=10, pady=10)
 
     window.mainloop()
 
-    # max = int(input('Enter max input: '))
-
-    # dir = int(input('Enter direction (left / right) => (0 / 1)'))
-
-    # head = int(input('Enter head starting location: '))
-
-    # noOfIndex = int(input('Enter number of index: '))
-
-    # reqSeq = []
-
-    # for i in range(noOfIndex):
-    #     str = 'Enter index no {}: '.format(i + 1)
-    #     ind = int(input(str))
-    #     reqSeq.append(ind)
-
-    # diskScheduling(reqSeq, head, noOfIndex, dir, 0, max)
+diskSchedulingMain()
 
 # Test input
 # 199
