@@ -1,19 +1,26 @@
 import tkinter as tk
 import numpy as np
 
-
+def main():
+    mainwindow = tk.Tk()
+    mainwindow.title("OS Simulator")
+    mainwindow.minsize(400, 300)
+    matdisplay_btn = tk.Button(master=mainwindow, text="Page Replacement Algorithm", command=getinputPagerep,background="cyan")
+    matdisplay_btn.pack()
+    mainwindow.mainloop()
+    
 def getinputPagerep():
     input_win = tk.Tk()
     input_win.title("Page Replacement Algorithm Inputs")
 
     frame_0_0 = tk.Frame(master=input_win, borderwidth=1)
     frame_0_0.grid(row=0, column=0)
-    m_frame_lbl = tk.Label(master=frame_0_0, text="Number of frames")
+    m_frame_lbl = tk.Label(master=frame_0_0, text="Number of frames",background="yellow")
     m_frame_lbl.pack()
 
     frame_1_0 = tk.Frame(master=input_win, borderwidth=1)
     frame_1_0.grid(row=1, column=0)
-    n_seq_lbl = tk.Label(master=frame_1_0, text="size of the sequence")
+    n_seq_lbl = tk.Label(master=frame_1_0, text="Size of the sequence",background="yellow")
     n_seq_lbl.pack()
 
     frame_0_1 = tk.Frame(master=input_win, borderwidth=1)
@@ -35,7 +42,7 @@ def getinputPagerep():
 
     frame_2_1 = tk.Frame(master=input_win, borderwidth=1)
     frame_2_1.grid(row=2, column=1)
-    submit_btn = tk.Button(master=frame_2_1, text="Submit", command=submit)
+    submit_btn = tk.Button(master=frame_2_1, text="Submit", command=submit,background="green",foreground="white",highlightcolor="blue")
     submit_btn.pack()
 
     input_win.mainloop()
@@ -189,8 +196,6 @@ def __fifolruoptimal(seq,n,m):
     __fifolruoptimal_win.mainloop()
 
 
-
-
 def get_input_Pagerep(m,n):
     window = tk.Tk()
     window.title("Page Replacment Algorithm Input")
@@ -200,7 +205,7 @@ def get_input_Pagerep(m,n):
     frame = tk.Frame(window, borderwidth=1)
     frame.grid(row=0, column=0)
 
-    lbl = tk.Label(master=frame, text="Sequence:\n(Input only positive values)")
+    lbl = tk.Label(master=frame, text="Sequence:\n(Input only positive values)",background="yellow")
 
     lbl.pack()
 
@@ -232,20 +237,21 @@ def get_input_Pagerep(m,n):
         __fifolruoptimal(seq,n,m)
 
 
-
-
     submitspace = tk.Frame(master=window, borderwidth=1)
     submitspace.grid(row=m+3, column=2*n)
 
     quitspace = tk.Frame(master=window, borderwidth=1 )
     quitspace.grid(row=m+3, column=3)
 
-    quit_btn = tk.Button(master=quitspace, text="Quit", command = window.destroy)
+    quit_btn = tk.Button(master=quitspace, text="Quit", command = window.destroy,background="red",foreground="white")
     quit_btn.pack()
 
-    submit_btn = tk.Button(master=submitspace, text="Submit", command=takesum)
+    submit_btn = tk.Button(master=submitspace, text="Submit", command=takesum,background="green",foreground="white")
     submit_btn.pack()
 
     window.mainloop()
+    
+if __name__ == "__main__":
+    main()
 
     
