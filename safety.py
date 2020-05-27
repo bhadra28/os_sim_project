@@ -2,9 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 import numpy as np
 
-def getinputBankers():
+def getinputSafety():
     input_win = tk.Tk()
-    input_win.title("Banker's Algorithm Inputs")
+    input_win.title("Safety Algorithm Inputs")
     frame_0_0 = tk.Frame(master=input_win, borderwidth=1)
     frame_0_0.grid(row=0, column=0)
     n_proc_lbl = tk.Label(master=frame_0_0, text="Number of processes")
@@ -30,7 +30,7 @@ def getinputBankers():
         c = int(n_res_entry.get())
 
         input_win.destroy()
-        bankers_input_mat(r, c)
+        safety_input_mat(r, c)
     
     frame_2_1 = tk.Frame(master=input_win, borderwidth=1)
     frame_2_1.grid(row=2, column=1)
@@ -39,7 +39,7 @@ def getinputBankers():
 
     input_win.mainloop()
 
-def bankers(matrix, available, r, c):
+def safety(matrix, available, r, c):
     alloc = matrix[0:r, 0:c]
     maxi = matrix[0:r, c:2*c]
     need = maxi - alloc
@@ -80,10 +80,10 @@ def bankers(matrix, available, r, c):
         ans=True
     
     print(text)
-    bankers_win = tk.Tk()
-    bankers_win.title("Banker's Algorithm Output")
-    bankers_win.minsize(400, 300)
-    frame = tk.Frame(master=bankers_win)
+    safety_win = tk.Tk()
+    safety_win.title("Safety Algorithm Output")
+    safety_win.minsize(400, 300)
+    frame = tk.Frame(master=safety_win)
 
 
 
@@ -96,24 +96,28 @@ def bankers(matrix, available, r, c):
 
         seq_lbl = tk.Label(frame, text=text)
         seq_lbl.pack()
+        res_lbl_2 = tk.Label(frame, text="System is in safe state.")
+        res_lbl_2.pack()
     else:
         res_lbl = tk.Label(frame, text="No valid sequence was found.", background='red', foreground='white')
         res_lbl.pack()
+        res_lbl_2 = tk.Label(frame, text="System is in unsafe state.")
+        res_lbl_2.pack()
 
 
     
     
     frame.pack()
 
-    quit_btn = tk.Button(master=bankers_win, text="Close", command=bankers_win.destroy)
+    quit_btn = tk.Button(master=safety_win, text="Close", command=safety_win.destroy)
     quit_btn.pack()
 
-    bankers_win.mainloop()
+    safety_win.mainloop()
 
 
-def bankers_input_mat(r, c):
+def safety_input_mat(r, c):
     window = tk.Tk()
-    window.title("Banker's Algorithm Input")
+    window.title("Safety Algorithm Input")
     entryobj = []
     free = []   
 
@@ -195,7 +199,7 @@ def bankers_input_mat(r, c):
         matrix = np.array(matrix).reshape(r, 2*c)
         window.destroy()
 
-        bankers(matrix, start, r, c)
+        safety(matrix, start, r, c)
 
 
     submitspace = tk.Frame(master=window, borderwidth=1)
