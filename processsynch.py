@@ -16,7 +16,7 @@ import queue
 
 from multiprocessing import Process, Queue, cpu_count
  
-from tkinter import *
+# from tkinter import *
 
 class ToolTip(object):
 
@@ -34,11 +34,11 @@ class ToolTip(object):
         x, y, cx, cy = self.widget.bbox("insert")
         x = x + self.widget.winfo_rootx() + 57
         y = y + cy + self.widget.winfo_rooty() +27
-        self.tipwindow = tw = Toplevel(self.widget)
+        self.tipwindow = tw = tk.Toplevel(self.widget)
         tw.wm_overrideredirect(1)
         tw.wm_geometry("+%d+%d" % (x, y))
-        label = tk.Label(tw, text=self.text, justify=LEFT,
-                      background="#ffffe0", relief=SOLID, borderwidth=1,
+        label = tk.Label(tw, text=self.text, justify=tk.LEFT,
+                      background="#ffffe0", relief=tk.SOLID, borderwidth=1,
                       font=("tahoma", "8", "normal"))
         label.pack(ipadx=1)
 
@@ -109,17 +109,27 @@ class Philosopher(threading.Thread):
  
 def dp():
 
-    root=tk.Tk()
-    main_frame = tk.Frame(root)
+    def on_configure(event):
+        canvas.configure(scrollregion=canvas.bbox('all'))
 
-    canvas_frame = tk.Frame(main_frame)
-    canvas_frame.pack()
 
-    canvas = tk.Canvas(canvas_frame, background='white')
-    canvas.grid(row=0,column=0)
-    scroll_y = tk.Scrollbar(canvas_frame, orient="vertical", command=canvas.yview)
-    scroll_y.grid(row=0, column=1, sticky="ns")
-    canvas.configure(yscrollcommand=scroll_y.set)
+    root = tk.Tk()
+
+
+    canvas = tk.Canvas(root, height=600, width=400)
+    canvas.pack(side=tk.LEFT)
+
+    yscroll = tk.Scrollbar(root, command=canvas.yview)
+    yscroll.pack(side=tk.LEFT, fill='y')
+
+    canvas.configure(yscrollcommand = yscroll.set)
+
+    canvas.bind('<Configure>', on_configure)
+
+    
+
+    frame = tk.Frame(canvas, background='white')
+    canvas.create_window((0,0), window=frame, anchor='nw')
 
     f = open("oplogs/dp.txt", 'w')
     f.close()
@@ -139,15 +149,11 @@ def dp():
     f = open("oplogs/dp.txt", 'r')
 
     for line in f.readlines():
-        lbl = tk.Label(canvas, text = line, background='white')
+        lbl = tk.Label(frame, text = line, background='white')
         lbl.pack()
-        
-    main_frame.pack()
-    quit_btn = tk.Button(main_frame, text="Quit", command=root.destroy)
-    quit_btn.pack(side=tk.LEFT, padx=10)
-    root.mainloop()
-    os.remove('oplogs/dp.txt')
 
+    os.remove('oplogs/dp.txt')
+    root.mainloop()
 
 #Use this to call Dining-Philosoper function
 # dp()
@@ -226,7 +232,7 @@ def pc():
         """Pretend we're getting a number from the network."""
         while not event.is_set():
             message = random.randint(1, 101)
-            logging.info("Producer got message: %s", message)
+            logging.info("Producer got message: %s", message, file=open("oplogs/sb.txt", "a"))
             queue.put(message)
 
         logging.info("Producer received event. Exiting")
@@ -257,7 +263,7 @@ def pc():
             event.set()
             
 #Use this to call Producer Consumer        
-#pc()
+# pc()
 
 
 def sb():
@@ -342,25 +348,7 @@ def sb():
         print("All done for the day, Barber(s) leaving")
         
 #Use this to call Sleeping Barber
-#sb()
+# sb()
 
-
-
-
-
-def processsynch():
-    root = tk.Tk()
-    root.title("Process Synchronization")
-
-    main_frame = tk.Frame(root)
-    
-    canvas = tk.Canvas(main_frame)
-
-    
-
-    canvas.pack()
-    main_frame.pack()
-
-    root.mainloop()
 
 
