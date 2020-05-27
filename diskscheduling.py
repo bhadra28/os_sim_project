@@ -559,7 +559,6 @@ def diskSchedulingMain():
 
     window.mainloop()
 
-diskSchedulingMain()
 
 # Test input
 # 199
