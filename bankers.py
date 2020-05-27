@@ -201,7 +201,7 @@ def bankers_input_mat(r, c):
 
 
     submitspace = tk.Frame(master=window, borderwidth=1)
-    submitspace.grid(row=r+4, column=2*c)
+    submitspace.grid(row=r+4, column=1)
 
     quitspace = tk.Frame(master=window, borderwidth=1 )
     quitspace.grid(row=r+4, column=0)
