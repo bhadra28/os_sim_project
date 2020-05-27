@@ -207,7 +207,7 @@ def get_input_Pagerep(m,n):
 
     frame = tk.Frame(window, borderwidth=1)
     frame.grid(row=0, column=0)
-    lbl = tk.Label(master=frame, text="Sequence")
+    lbl = tk.Label(master=frame, text="Sequence:\n(Input only positive values)")
     lbl.pack()
 
     for i in range(n):
