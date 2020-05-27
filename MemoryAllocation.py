@@ -177,26 +177,25 @@ def firstFit(blockSize, m, processSize, n):
     mem_win.minsize(400, 300)
     frame = tk.Frame(master=mem_win)
     
-    lbl = tk.Label(frame, text="FIRST FIT OUTPUT")
-    lbl.pack()
+    lbl = tk.Label(frame, text="FIRST FIT OUTPUT").grid(row = 0,column = 2)
     
-    lbl_tit = tk.Label(frame,text= " Process No.   Process Size",background = 'blue')
-    lbl_tit.pack()
+    lbl_tit = tk.Label(frame,text= " Process No",background = 'yellow',relief="ridge",borderwidth = 3,width = 10).grid(row = 1,column = 1)
+    lbl_tit = tk.Label(frame,text= " Process Size",background = 'yellow',relief="ridge",borderwidth = 3,width = 10).grid(row = 1,column = 2)
+    lbl_tit = tk.Label(frame,text= " Block No.",background = 'yellow',relief="ridge",borderwidth = 3,width = 20).grid(row = 1,column = 3)
+    
     for i in range(n):
-        frame.grid(row=i+1, column=0)
-        text1 = " "+str(i + 1)+"\t"+str(processSize[i])
-        lbl_h = tk.Label(frame,text=text1)
-        lbl_h.pack()
+        text1 = str(i + 1)
+        lbl_h = tk.Label(frame,text=text1,relief="ridge",borderwidth = 3,width = 10).grid(row = i+2,column = 1)
+        text1 = str(processSize[i])
+        lbl_h = tk.Label(frame,text=text1,relief="ridge",borderwidth = 3,width = 10).grid(row = i+2,column = 2)
         
         if allocation[i] != -1:  
             text2 = "Block Allocated : "+ str(allocation[i] + 1)
-            lbl1 = tk.Label(frame,text = text2,background = 'green')
-            lbl1.pack()
+            lbl1 = tk.Label(frame,text = text2,background = '#90ee90',relief="ridge",borderwidth = 3,width = 20).grid(row = i+2,column = 3)
         else: 
-            lbl2 = tk.Label(frame,text ="Block Not Allocated", background = 'red')
-            lbl2.pack()
+            lbl2 = tk.Label(frame,text ="Block Not Allocated", background = '#ffcccb',relief="ridge",borderwidth = 3,width = 20).grid(row = i+2,column = 3)
             
-    frame.pack()
+    frame.grid()
             
             
 def bestFit(blockSize, m, processSize, n): 
@@ -219,26 +218,25 @@ def bestFit(blockSize, m, processSize, n):
     mem_win.minsize(400, 300)
     frame = tk.Frame(master=mem_win)
     
-    lbl = tk.Label(frame, text="BEST FIT OUTPUT")
-    lbl.pack()
+    lbl = tk.Label(frame, text="BEST FIT OUTPUT").grid(row = 0,column = 2)
     
-    lbl_tit = tk.Label(frame,text= " Process No.   Process Size",background = 'blue')
-    lbl_tit.pack()
+    lbl_tit = tk.Label(frame,text= " Process No",background = 'yellow',relief="ridge",borderwidth = 3,width = 10).grid(row = 1,column = 1)
+    lbl_tit = tk.Label(frame,text= " Process Size",background = 'yellow',relief="ridge",borderwidth = 3,width = 10).grid(row = 1,column = 2)
+    lbl_tit = tk.Label(frame,text= " Block No.",background = 'yellow',relief="ridge",borderwidth = 3,width = 20).grid(row = 1,column = 3)
+    
     for i in range(n):
-        frame.grid(row=i+1, column=0)
-        text1 = " "+str(i + 1)+"\t"+str(processSize[i])
-        lbl_h = tk.Label(frame,text=text1)
-        lbl_h.pack()
+        text1 = str(i + 1)
+        lbl_h = tk.Label(frame,text=text1,relief="ridge",borderwidth = 3,width = 10).grid(row = i+2,column = 1)
+        text1 = str(processSize[i])
+        lbl_h = tk.Label(frame,text=text1,relief="ridge",borderwidth = 3,width = 10).grid(row = i+2,column = 2)
         
         if allocation[i] != -1:  
             text2 = "Block Allocated : "+ str(allocation[i] + 1)
-            lbl1 = tk.Label(frame,text = text2,background = 'green')
-            lbl1.pack()
+            lbl1 = tk.Label(frame,text = text2,background = '#90ee90',relief="ridge",borderwidth = 3,width = 20).grid(row = i+2,column = 3)
         else: 
-            lbl2 = tk.Label(frame,text ="Block Not Allocated", background = 'red')
-            lbl2.pack()
+            lbl2 = tk.Label(frame,text ="Block Not Allocated", background = '#ffcccb',relief="ridge",borderwidth = 3,width = 20).grid(row = i+2,column = 3)
             
-    frame.pack()
+    frame.grid()
             
             
 def worstFit(blockSize, m, processSize, n): 
@@ -260,26 +258,25 @@ def worstFit(blockSize, m, processSize, n):
     mem_win.minsize(400, 300)
     frame = tk.Frame(master=mem_win)
     
-    lbl = tk.Label(frame, text="WORST FIT OUTPUT")
-    lbl.pack()
+    lbl = tk.Label(frame, text="WORST FIT OUTPUT").grid(row = 0,column = 2)
     
-    lbl_tit = tk.Label(frame,text= " Process No.   Process Size",background = 'blue')
-    lbl_tit.pack()
+    lbl_tit = tk.Label(frame,text= " Process No",background = 'yellow',relief="ridge",borderwidth = 3,width = 10).grid(row = 1,column = 1)
+    lbl_tit = tk.Label(frame,text= " Process Size",background = 'yellow',relief="ridge",borderwidth = 3,width = 10).grid(row = 1,column = 2)
+    lbl_tit = tk.Label(frame,text= " Block No.",background = 'yellow',relief="ridge",borderwidth = 3,width = 20).grid(row = 1,column = 3)
+    
     for i in range(n):
-        frame.grid(row=i+1, column=0)
-        text1 = " "+str(i + 1)+"\t"+str(processSize[i])
-        lbl_h = tk.Label(frame,text=text1)
-        lbl_h.pack()
+        text1 = str(i + 1)
+        lbl_h = tk.Label(frame,text=text1,relief="ridge",borderwidth = 3,width = 10).grid(row = i+2,column = 1)
+        text1 = str(processSize[i])
+        lbl_h = tk.Label(frame,text=text1,relief="ridge",borderwidth = 3,width = 10).grid(row = i+2,column = 2)
         
         if allocation[i] != -1:  
             text2 = "Block Allocated : "+ str(allocation[i] + 1)
-            lbl1 = tk.Label(frame,text = text2,background = 'green')
-            lbl1.pack()
+            lbl1 = tk.Label(frame,text = text2,background = '#90ee90',relief="ridge",borderwidth = 3,width = 20).grid(row = i+2,column = 3)
         else: 
-            lbl2 = tk.Label(frame,text ="Block Not Allocated", background = 'red')
-            lbl2.pack()
+            lbl2 = tk.Label(frame,text ="Block Not Allocated", background = '#ffcccb',relief="ridge",borderwidth = 3,width = 20).grid(row = i+2,column = 3)
             
-    frame.pack()
+    frame.grid()
 
             
 if __name__ == '__main__':
