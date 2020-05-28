@@ -32,6 +32,9 @@ def main():
     CreateToolTip(pagerep_btn, text = 'Generates analysis of process scheduling methods\n'
                  'Gives turnaround time, waiting time, response time, and other statistics\n'
                  'for FCFS, SJF, SRTF, RR, preemptive and non preemptive Priority scheduling.')
+    desc = tk.Button(frame, text="Summary", command=proc_desc)
+    desc.pack(side=tk.LEFT)
+
 
     frame = tk.Frame(mainwindow)
     frame.pack(padx=10, pady=10)
@@ -57,6 +60,8 @@ def main():
     disksched_btn.pack(side=tk.LEFT)
     CreateToolTip(disksched_btn, text = 'Disk Schedluing Implementation\n'
                  'Output is in textboxes')
+    desc = tk.Button(frame, text="Summary", command=disk_desc)
+    desc.pack(side=tk.LEFT)
 
     frame = tk.Frame(mainwindow)
     frame.pack(padx=10, pady=10)
