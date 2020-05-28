@@ -39,8 +39,8 @@ def bankers_desc():
 
 def MemAlloDesc():
     root = tk.Tk()
-    root.title("Memory Allocation Algorithms")
-    root.minsize(600, 700)
+    root.title("Memory Management")
+    root.minsize(700, 600)
 
     desc_frame = tk.Frame(root, background='gray')
     desc_frame.pack(padx=10, pady=10, fill='both', expand=tk.YES)
@@ -68,8 +68,8 @@ def MemAlloDesc():
 
     tbox = tk.Text(frame, background='gray', wrap=tk.WORD)
     tbox.pack()
-    tbox.insert(tk.INSERT, "This project is submitted to Shashidhar sir, Anappa Sir, and \nAnkit Sir, of the Computer Science department of NITK, Surathkal, \nas part of the course requirements for CS255, Operating Systems\n\n")
-
+    tbox.insert(tk.INSERT, "\tMemory management is a form of resource management applied to computer \nmemory.The essential requirement of memory management is to provide ways to \ndynamically allocate portions of memory to programs at their request, and free it for reuse when no longer needed. This is critical to any advanced computer \nsystem where more than a single process might be underway at any time\n\n")
+    tbox.insert(tk.INSERT, "For More informtion visit : https://en.wikipedia.org/wiki/Memory_management")
 
     tbox.config(state='disabled')
 
