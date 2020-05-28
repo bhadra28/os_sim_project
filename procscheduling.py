@@ -397,6 +397,8 @@ def scheduling():
     timeQuantumEntry = tk.Entry(middleFrame)
     timeQuantumEntry.grid(row=2, column=1)
 
+    tk.Label(middleFrame, text="Note: Higher priority has lower number.").grid(row=0)
+
     quitBtn = tk.Button(bottomFrame, text='Quit', command=lambda: exit())
     quitBtn.grid(row=0, column=0, padx=10, pady=10)
 
