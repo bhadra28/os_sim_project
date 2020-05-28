@@ -250,8 +250,5 @@ def get_input_Pagerep(m,n):
     submit_btn.pack()
 
     window.mainloop()
-    
-if __name__ == "__main__":
-    main()
-
+ 
     
