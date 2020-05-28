@@ -70,7 +70,7 @@ def main():
                  'Simulates 50 customers and 3 barbers in the sleeping barbers problem')
 
     credits_frame = tk.Frame(mainwindow, background='gray')
-    credits_frame.pack(padx=10, pady=10, fill='x', expand=tk.YES)
+    credits_frame.pack(padx=10, pady=10, fill='both', expand=tk.YES)
 
     def on_configure(event):
         canvas.configure(scrollregion=canvas.bbox('all'))
@@ -99,7 +99,9 @@ def main():
 
     tbox.insert(tk.INSERT, "This project is a collection of decision-making algorithms used in \nOperating Systems.\n\nSubmitted by:\n")
 
-    tbox.insert(tk.INSERT, "181CO111: Ashish Reddy\n181CO112: Atul Kailas Patil\n181CO113: Bhadra Giri\n181CO115: Chethan L Naik\n181CO116: Danish Waseem\n181CO118: Dhiraj Lokesh\n181CO119: Feyaz Baker\n")
+    tbox.insert(tk.INSERT, "181CO111: Ashish Reddy\t\t\t  181CO112: Atul Kailas Patil\n181CO113: Bhadra Giri\t\t\t   181CO115: Chethan L Naik\n181CO116: Danish Waseem\t\t\t 181CO118: Dhiraj Lokesh\n \t\t\t   181CO119: Feyaz Baker\n")
+
+    tbox.insert(tk.INSERT, "\nSubmitted on\n28th May 2020\n")
 
     tbox.config(state='disabled')
 

@@ -328,7 +328,7 @@ def sb():
                 while self.serviced.isSet() == False:
                         self.wait()
 
-    if __name__ == '__main__':
+    def sbstart():
         barbers = []
 
         def on_configure(event):
@@ -339,8 +339,8 @@ def sb():
         root.title("Sleeping Barbers")
 
 
-        canvas = tk.Canvas(root, height=600, width=400)
-        canvas.pack(side=tk.LEFT)
+        canvas = tk.Canvas(root, height=600, width=300)
+        canvas.pack(side=tk.LEFT, fill='both', expand=tk.TRUE)
 
         yscroll = tk.Scrollbar(root, command=canvas.yview)
         yscroll.pack(side=tk.LEFT, fill='y')
@@ -348,8 +348,6 @@ def sb():
         canvas.configure(yscrollcommand = yscroll.set)
 
         canvas.bind('<Configure>', on_configure)
-
-        
 
         frame = tk.Frame(canvas, background='white')
         canvas.create_window((0,0), window=frame, anchor='nw')
@@ -384,7 +382,9 @@ def sb():
 
         os.remove('oplogs/sb.txt')
         root.mainloop()
-        
+
+    sbstart() 
+    
 #Use this to call Sleeping Barber
 # sb()
 
