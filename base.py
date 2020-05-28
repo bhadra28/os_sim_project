@@ -16,7 +16,7 @@ def fun():
 def main():
     mainwindow = tk.Tk()
     mainwindow.title("OS Simulator")
-    mainwindow.minsize(400, 300)
+    mainwindow.minsize(600, 600)
 
     frame = tk.Frame(mainwindow)
     frame.pack(padx=10, pady=10,fill='x')
