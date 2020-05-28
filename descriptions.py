@@ -37,6 +37,7 @@ def bankers_desc():
     tbox.config(state='disabled')
     root.mainloop()
 
+    
 def disk_desc():
     root = tk.Tk()
     root.title("Disc Scheduling Algorithms")
@@ -148,9 +149,11 @@ def MemAlloDesc():
     tbox.config(state='disabled')
     root.mainloop()
     
+
 def page_rep_desc():
     root = tk.Tk()
     root.title("Page Replacement Algorithms")
+
     root.minsize(600, 700)
 
     desc_frame = tk.Frame(root, background='white')
@@ -174,7 +177,9 @@ def page_rep_desc():
     canvas.create_window((0,0), window=frame, anchor='nw')
 
 
+
     lbl = tk.Label(frame, text="Page Replacement Algorithms", font="-size 20", background='gray')
+
     lbl.pack()
 
     tbox = tk.Text(frame, background='gray', wrap=tk.WORD)
@@ -183,5 +188,5 @@ def page_rep_desc():
 
 
     tbox.config(state='disabled')
-    
+
     root.mainloop()
