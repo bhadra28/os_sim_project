@@ -49,7 +49,7 @@ def main():
     pagerep_btn.pack(side=tk.LEFT)
     CreateToolTip(pagerep_btn, text = 'Generates analysis of Memory Allocation methods\n'
                  'Gives fragmentation, block allocation for first fit, best fit and worst fit.')
-    desc = tk.Button(frame, text="Info", command=MemAlloDesc)
+    desc = tk.Button(frame, text="Summary", command=MemAlloDesc)
     desc.pack(side=tk.LEFT)
 
 
