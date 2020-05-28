@@ -37,6 +37,7 @@ def bankers_desc():
     tbox.config(state='disabled')
     root.mainloop()
 
+    
 def disk_desc():
     root = tk.Tk()
     root.title("Disc Scheduling Algorithms")
@@ -146,4 +147,43 @@ def MemAlloDesc():
 
 
     tbox.config(state='disabled')
+    root.mainloop()
+    
+    
+    
+def page_rep_desc():
+    root = tk.Tk()
+    root.title("Page Replacemet Algorithms")
+    root.minsize(600, 700)
+
+    desc_frame = tk.Frame(root, background='white')
+    desc_frame.pack(padx=10, pady=10, fill='both', expand=tk.YES)
+
+    def on_configure(event):
+        canvas.configure(scrollregion=canvas.bbox('all'))
+
+    canvas = tk.Canvas(desc_frame, background='gray')
+    canvas.pack(side=tk.LEFT, fill='both', expand=tk.YES)
+
+    scrollbar = tk.Scrollbar(desc_frame, command=canvas.yview)
+    scrollbar.pack(side=tk.LEFT, fill='y')
+
+    canvas.configure(yscrollcommand = scrollbar.set)
+
+    canvas.bind('<Configure>', on_configure)
+
+
+    frame = tk.Frame(canvas, background='gray')
+    canvas.create_window((0,0), window=frame, anchor='nw')
+
+
+    lbl = tk.Label(frame, text="Page Reaplcement Algorithms", font="-size 20", background='gray')
+    lbl.pack()
+
+    tbox = tk.Text(frame, background='gray', wrap=tk.WORD)
+    tbox.pack()
+    tbox.insert(tk.INSERT,"In a computer operating system that uses paging for virtual memory management, page replacement algorithms decide which memory pages to page out, sometimes called swap out, or write to disk, when a page of memory needs to be allocated. Page replacement happens when a requested page is not in memory (page fault) and a free page cannot be used to satisfy the allocation, either because there are none, or because the number of free pages is lower than some threshold.\n\n Read more at:\n https://en.wikipedia.org/wiki/Page_replacement_algorithm")
+
+
+    tbox.config(state='disabled')    
     root.mainloop()
