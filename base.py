@@ -13,7 +13,7 @@ from procscheduling import *
 def main():
     mainwindow = tk.Tk()
     mainwindow.title("OS Simulator")
-    mainwindow.minsize(600, 600)
+    mainwindow.minsize(600, 700)
 
     frame = tk.Frame(mainwindow)
     frame.pack(padx=10, pady=10,fill='x')
