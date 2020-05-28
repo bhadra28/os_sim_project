@@ -31,7 +31,7 @@ def bankers_desc():
 
     tbox = tk.Text(frame, background='gray', wrap=tk.WORD)
     tbox.pack()
-    tbox.insert(tk.INSERT, "This project is submitted to Shashidhar sir, Anappa Sir, and \nAnkit Sir, of the Computer Science department of NITK, Surathkal, \nas part of the course requirements for CS255, Operating Systems\n\n")
+    tbox.insert(tk.INSERT, "Banker's algorithm is used to find a safe sequence of processes for a given set of processes,each with their own amounts of resources required and resources held. In general, Banker's algorithm cannot be used in in scheduling systems because it requires processes to declare all the resources they might need at runtime itself.\n\nRead more at : https://en.wikipedia.org/wiki/Banker%27s_algorithm")
 
 
     tbox.config(state='disabled')
