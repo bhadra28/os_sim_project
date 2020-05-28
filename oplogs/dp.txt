@@ -1,0 +1,24 @@
+Seneca is hungry.
+Seneca starts eating 
+Buchanan is hungry.
+Buchanan starts eating 
+Buchanan finishes eating and leaves to think.
+Nietzsche is hungry.
+Zeno is hungry.
+Zeno swaps forks
+Aristotle is hungry.
+Aristotle starts eating 
+Seneca finishes eating and leaves to think.
+Nietzsche swaps forks
+Zeno starts eating 
+Zeno finishes eating and leaves to think.
+Aristotle finishes eating and leaves to think.
+Nietzsche starts eating 
+Buchanan is hungry.
+Buchanan starts eating 
+Now we're finishing.
+Nietzsche finishes eating and leaves to think.
+Buchanan finishes eating and leaves to think.
+Seneca is hungry.
+Zeno is hungry.
+Aristotle is hungry.
