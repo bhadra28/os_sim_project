@@ -386,7 +386,7 @@ def sb():
         root.mainloop()
         
 #Use this to call Sleeping Barber
-sb()
+# sb()
 
 
 

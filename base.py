@@ -10,9 +10,6 @@ from processsynch import *
 from memoryalloc import *
 from procscheduling import *
 
-def fun():
-    exec(open('diskscheduling.py').read())
-
 def main():
     mainwindow = tk.Tk()
     mainwindow.title("OS Simulator")
