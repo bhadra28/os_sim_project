@@ -53,7 +53,7 @@ def main():
     frame.pack(padx=10, pady=10,fill='x')
     disksched_btn = tk.Button(frame, text="Disk Scheduling methods", command=diskSchedulingMain)
     disksched_btn.pack()
-    CreateToolTip(disksched_btn, text = 'Implementation\n'
+    CreateToolTip(disksched_btn, text = 'Disk Schedluing Implementation\n'
                  'Output is in textboxes')
 
     frame = tk.Frame(mainwindow)

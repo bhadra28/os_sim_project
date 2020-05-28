@@ -2,6 +2,7 @@ import tkinter as tk
     
 def getinputMA():
     input_win = tk.Tk()
+    input_win.title("Memory Allocation methods")
     
     frame_0_0 = tk.Frame(master=input_win, borderwidth=1)
     frame_0_0.grid(row=0, column=0)

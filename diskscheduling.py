@@ -556,7 +556,7 @@ def diskSchedulingMain():
     noOfIndexEntry = tk.Entry(middleFrame)
     noOfIndexEntry.grid(row=4, column=1)
 
-    quitBtn = tk.Button(bottomFrame, text='Quit', command=lambda: exit())
+    quitBtn = tk.Button(bottomFrame, text='Quit', command=window.destroy)
     quitBtn.grid(row=0, column=0, padx=10, pady=10)
 
     submitBtn = tk.Button(bottomFrame, text='Submit',
