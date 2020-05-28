@@ -39,7 +39,11 @@ def bankers_desc():
 
 def disk_desc():
     root = tk.Tk()
+<<<<<<< HEAD
     root.title("Disc Scheduling Algorithms")
+=======
+    root.title("Memory Allocation Algorithms")
+>>>>>>> parent of 8a116f7... description added to Memery Allocation
     root.minsize(600, 700)
 
     desc_frame = tk.Frame(root, background='gray')
@@ -68,7 +72,11 @@ def disk_desc():
 
     tbox = tk.Text(frame, background='gray', wrap=tk.WORD)
     tbox.pack()
+<<<<<<< HEAD
     tbox.insert(tk.INSERT, "Information stored on disk needs to be retrieved at a rate optimal for processing in CPU. With caches and buffers, there is no problem if the data is early, but we must ensure that disks are read efficiently so as to not be late. To this end, we have disk scheduling algorithms like \n\nShortest Seek Time First (https://en.wikipedia.org/wiki/Shortest_seek_first), \n\nSCAN (https://en.wikipedia.org/wiki/Elevator_algorithm), \n\nCircular SCAN (https://www.geeksforgeeks.org/c-scan-disk-scheduling-algorithm/), \n\nLOOK (https://en.wikipedia.org/wiki/LOOK_algorithm), and\n\nCLOOK (https://www.gatevidyalay.com/c-look-algorithm-disk-scheduling-algorithms/)")
+=======
+    tbox.insert(tk.INSERT, "This project is submitted to Shashidhar sir, Anappa Sir, and \nAnkit Sir, of the Computer Science department of NITK, Surathkal, \nas part of the course requirements for CS255, Operating Systems\n\n")
+>>>>>>> parent of 8a116f7... description added to Memery Allocation
 
 
     tbox.config(state='disabled')
